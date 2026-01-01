@@ -34,32 +34,32 @@
           Show settings
         </button>
       </div>
-
-      <dialog id="settings-modal" closedby="any">
-        <fieldset>
-          <legend>What counts as a beat?</legend>
-          <div>
-            <input type="radio" id="click-only" name="input-type" />
-            <label for="click-only">Only clicks/taps</label>
-          </div>
-          <div>
-            <input type="radio" id="key-only" name="input-type" />
-            <label for="key-only">Only key presses</label>
-          </div>
-          <div>
-            <input type="radio" id="any-input" name="input-type" checked />
-            <label for="any-input">Both</label>
-          </div>
-        </fieldset>
-        <button
-          id="close-settings-modal"
-          commandfor="settings-modal"
-          command="close"
-        >
-          Close settings
-        </button>
-      </dialog>
     </main>
+
+    <dialog id="settings-modal" closedby="any">
+      <fieldset>
+        <legend>What counts as a beat?</legend>
+        <div>
+          <input type="radio" id="click-only" name="input-type" />
+          <label for="click-only">Only clicks/taps</label>
+        </div>
+        <div>
+          <input type="radio" id="key-only" name="input-type" />
+          <label for="key-only">Only key presses</label>
+        </div>
+        <div>
+          <input type="radio" id="any-input" name="input-type" checked />
+          <label for="any-input">Both</label>
+        </div>
+      </fieldset>
+      <button
+        id="close-settings-modal"
+        commandfor="settings-modal"
+        command="close"
+      >
+        Close settings
+      </button>
+    </dialog>
 
     <script src="./bpm.js"></script>
   </body>

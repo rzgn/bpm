@@ -1,4 +1,8 @@
-body {
+html {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
   background-color: rgb(238, 234, 246);
   color: black;
   font-family: "Arial", "Helvetica", sans-serif;
@@ -11,6 +15,7 @@ main {
   padding: 1.5rem;
   width: 40rem;
   max-width: calc(92vw - 3rem);
+  height: 100%;
 
   border-radius: 1rem;
 }
@@ -21,6 +26,8 @@ h1 {
 }
 
 button {
+  cursor: pointer;
+
   font-size: medium;
 
   min-height: 3rem;
@@ -29,7 +36,9 @@ button {
 
   border-radius: 0.5rem;
   border: 0.08rem solid rgb(120, 103, 152);
+  color: black;
   background-color: white;
+  transition: background-color 150ms ease-in-out;
 
   &:hover,
   &:focus-visible {
@@ -44,8 +53,6 @@ button {
     margin-right: 1rem;
     margin-bottom: 1rem;
   }
-
-  transition: background-color 150ms ease-in-out;
 }
 
 #controls {

@@ -68,7 +68,8 @@ const BUTTON_INTERACTION_KEYS = [" ", "Enter"];
 const settingsModal = document.getElementById("settings-modal");
 
 const attachBeatListeners = () => {
-  window.addEventListener("click", (e) => {
+  const rootElem = document.querySelector("html");
+  rootElem.addEventListener("click", (e) => {
     if (settingsModal.open) return;
     if (document.getElementById("key-only").checked) return;
 
@@ -79,7 +80,7 @@ const attachBeatListeners = () => {
     countBeat();
   });
 
-  window.addEventListener("keydown", (e) => {
+  rootElem.addEventListener("keydown", (e) => {
     if (settingsModal.open) return;
     if (document.getElementById("click-only").checked) return;
     if (NAVIGATION_KEYS.includes(e.key)) return;
@@ -104,7 +105,7 @@ const attachSettingsListeners = () => {
     })
   );
 
-  // Show/hide modal buttons for browsers that don't support command/commandfor
+  // Workaround for browsers that don't support command/commandfor
   document
     .getElementById("show-settings-modal")
     .addEventListener("click", () => {
