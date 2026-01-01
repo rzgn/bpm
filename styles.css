@@ -1,0 +1,85 @@
+body {
+  background-color: rgb(238, 234, 246);
+  color: black;
+  font-family: "Arial", "Helvetica", sans-serif;
+
+  user-select: none;
+}
+
+main {
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  width: 40rem;
+  max-width: calc(92vw - 3rem);
+
+  border-radius: 1rem;
+}
+
+h1 {
+  font-size: x-large;
+  margin-top: 0;
+}
+
+button {
+  font-size: medium;
+
+  min-height: 3rem;
+  min-width: 3rem;
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+  border: 0.08rem solid rgb(120, 103, 152);
+  background-color: white;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgb(210, 201, 230);
+  }
+
+  &:active {
+    background-color: rgb(171, 159, 193);
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  transition: background-color 150ms ease-in-out;
+}
+
+#controls {
+  margin-top: 1rem;
+}
+
+#bpm-container {
+  font-family: "Consolas", "Courier New", "Courier", monospace;
+  font-size: 4rem;
+  margin: 1rem 0;
+}
+
+#settings-modal {
+  max-width: calc(80vw - 4rem);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  user-select: none;
+
+  fieldset {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0.125rem solid rgb(199, 195, 208);
+    border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    margin-bottom: 1rem;
+  }
+}
+
+#settings-modal::backdrop {
+  backdrop-filter: blur(0.5rem);
+}
