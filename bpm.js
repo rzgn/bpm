@@ -2,6 +2,8 @@
 
 const BPM_CONVERSION_FACTOR = 60_000;
 const MS_CONVERSION_FACTOR = 1_000;
+const LOCAL_STORAGE_INPUT_TYPE_KEY = "bpmInputType";
+const DEFAULT_INPUT_TYPE_ID = "any-input";
 
 const bpmElem = document.getElementById("bpm");
 const beatsElem = document.getElementById("beat-count");
@@ -61,6 +63,33 @@ const updateInstructions = () => {
   }
 };
 
+// Save settings in local storage
+const saveSettings = () => {
+  for (input of document.querySelectorAll("input[name='input-type']")) {
+    if (input.checked) {
+      localStorage.setItem(LOCAL_STORAGE_INPUT_TYPE_KEY, input.id);
+      break;
+    }
+  }
+};
+
+// Read settings from local storage if they exist and apply them
+const getSettings = () => {
+  const inputId =
+    localStorage.getItem(LOCAL_STORAGE_INPUT_TYPE_KEY) ?? DEFAULT_INPUT_TYPE_ID;
+  document.getElementById(inputId).checked = true;
+};
+
+const onSettingsChange = () => {
+  saveSettings();
+  updateInstructions();
+};
+
+const initSettings = () => {
+  getSettings();
+  updateInstructions();
+};
+
 // Set up listeners for click and keyboard events
 
 const NAVIGATION_KEYS = ["Tab", "Escape"];
@@ -101,7 +130,7 @@ const attachBeatListeners = () => {
 const attachSettingsListeners = () => {
   document.querySelectorAll("input[name='input-type']").forEach((elem) =>
     elem.addEventListener("click", () => {
-      updateInstructions();
+      onSettingsChange();
     })
   );
 
@@ -134,6 +163,6 @@ function main() {
   attachSettingsListeners();
   attachResetButtonListener();
 
-  updateInstructions();
+  initSettings();
 }
 main();
